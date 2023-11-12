@@ -19,10 +19,10 @@ const quizSchema = new mongoose.Schema({
     required: true,
   },
   dueTo: {
-    type: Date,
+    type: String,
     required: true,
   },
-});
+}, { versionKey: false });
 
 const Quiz = mongoose.model('Quiz', quizSchema);
 

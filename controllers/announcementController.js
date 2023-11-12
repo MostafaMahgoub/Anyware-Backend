@@ -27,8 +27,8 @@ const getAnnouncementById = (req, res) => {
 };
 
 const createAnnouncement = (req, res) => {
-  const { title, content } = req.body;
-  const announcement = new Announcement({ title, content });
+  const { name , subject , title } = req.body;
+  const announcement = new Announcement({ name , subject , title });
   announcement
     .save()
     .then((newAnnouncement) => {
@@ -41,10 +41,10 @@ const createAnnouncement = (req, res) => {
 
 const updateAnnouncement = (req, res) => {
   const id = req.params.id;
-  const { title, content } = req.body;
+  const { name , subject , title } = req.body;
   Announcement.findByIdAndUpdate(
     id,
-    { title, content },
+    { name , subject , title },
     { new: true }
   )
     .then((updatedAnnouncement) => {

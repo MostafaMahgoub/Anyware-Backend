@@ -26,8 +26,8 @@ const getQuizById = (req, res) => {
 };
 
 const createQuiz = (req, res) => {
-  const { title, course, topic, dueTo } = req.body;
-  const newQuiz = new Quiz({ title, course, topic, dueTo });
+  const { type, title, course, topic , dueTo } = req.body;
+  const newQuiz = new Quiz({ type, title, course, topic , dueTo});
   newQuiz
     .save()
     .then((quiz) => {
@@ -40,10 +40,10 @@ const createQuiz = (req, res) => {
 
 const updateQuiz = (req, res) => {
   const id = req.params.id;
-  const { title, course, topic, dueTo } = req.body;
+  const { type, title, course, topic , dueTo } = req.body;
   Quiz.findByIdAndUpdate(
     id,
-    { title, course, topic, dueTo },
+    { type,title, course, topic, dueTo },
     { new: true }
   )
     .then((quiz) => {
